@@ -5,7 +5,8 @@
 
 import UIKit
 
-class ConversationsController: UITabBarController {
+class ConversationsController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

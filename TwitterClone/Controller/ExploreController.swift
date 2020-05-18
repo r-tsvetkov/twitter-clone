@@ -5,7 +5,10 @@
 
 import UIKit
 
-class ExploreController: UITabBarController {
+class ExploreController: UIViewController {
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -13,6 +16,7 @@ class ExploreController: UITabBarController {
     }
 
     // MARK: - Helpers
+
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Explore"

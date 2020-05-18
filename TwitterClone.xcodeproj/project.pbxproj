@@ -14,6 +14,7 @@
 		D8AF638205ACDDB5A0B0329F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AF67027AA63441E1D071AC /* LaunchScreen.storyboard */; };
 		D8AF63D2DACB4CFBD1EBD4D6 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF6FE9E4D87710F6D3B5A5 /* ExploreController.swift */; };
 		D8AF668751635E371D9BE2EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF624B3198CCDF7305992C /* SceneDelegate.swift */; };
+		D8AF675EB214383D25F3E50D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF6B79A5EDA9B8D7531D4C /* Extensions.swift */; };
 		D8AF67B10F20AAFBC39CF754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF6CC4C845AC9F19271B53 /* AppDelegate.swift */; };
 		D8AF6A0F15263E7C90F0D0C2 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF629BD617C69BCDDC55FB /* ConversationsController.swift */; };
 		D8AF6B956BCF53696A5BE361 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF602F5AE38E2801CEF18D /* MainTabController.swift */; };
@@ -32,6 +33,7 @@
 		D8AF66B744437BD26D909D81 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		D8AF67027AA63441E1D071AC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8AF678391F2DFE7FD17E3DB /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		D8AF6B79A5EDA9B8D7531D4C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D8AF6CC4C845AC9F19271B53 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AF6FE9E4D87710F6D3B5A5 /* ExploreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 		D8AF6B0E239C499E6754720A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D8AF6B79A5EDA9B8D7531D4C /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				D8AF63D2DACB4CFBD1EBD4D6 /* ExploreController.swift in Sources */,
 				D8AF61ED204BBF0C04D72469 /* NotificationController.swift in Sources */,
 				D8AF6A0F15263E7C90F0D0C2 /* ConversationsController.swift in Sources */,
+				D8AF675EB214383D25F3E50D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,8 @@
 
 import UIKit
 
-class NotificationController: UITabBarController {
+class NotificationController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -13,6 +14,7 @@ class NotificationController: UITabBarController {
     }
 
     // MARK: - Helpers
+
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Notifications"

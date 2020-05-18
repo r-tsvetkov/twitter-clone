@@ -6,9 +6,9 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    // MARK: - Properties
 
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
