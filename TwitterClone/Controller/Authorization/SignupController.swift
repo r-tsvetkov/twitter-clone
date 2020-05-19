@@ -1,23 +1,19 @@
 //
-// Created by Роман Цветков on 17.05.2020.
+// Created by Роман Цветков on 19.05.2020.
 // Copyright (c) 2020 Roman Tsvetkov. All rights reserved.
 //
 
 import UIKit
 
-class ExploreController: UIViewController {
+class SignupController: UIViewController {
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        configureUI()
     }
 
     // MARK: - Helpers
     func configureUI() {
-        view.backgroundColor = .white
-        navigationItem.title = "Explore"
+        view.backgroundColor = .twitterBlue
     }
-
 }

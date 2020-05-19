@@ -24,13 +24,11 @@ class MainTabController: UITabBarController {
     }
 
     // MARK: - Selectors
-
     @objc func buttonTapped() {
         print("123")
     }
 
     // MARK: - Helpers
-
     func configureUI() {
         view.addSubview(actionButton)
         actionButton.anchor(

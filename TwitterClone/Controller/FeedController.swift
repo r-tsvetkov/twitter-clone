@@ -8,7 +8,6 @@ import UIKit
 class FeedViewController: UIViewController {
 
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,7 +15,6 @@ class FeedViewController: UIViewController {
     }
 
     // MARK: - Helpers
-
     func configureUI() {
         view.backgroundColor = .white
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
