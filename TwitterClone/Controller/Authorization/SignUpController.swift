@@ -4,11 +4,13 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpController: UIViewController {
 
     // MARK: - Properties
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
 
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -49,6 +51,7 @@ class SignUpController: UIViewController {
 
     private let emailTextField: UITextField = {
         let textField = Utilities.createTextField(withPlaceholder: "Email")
+        textField.autocapitalizationType = .none
 
         return textField
     }()
@@ -62,14 +65,12 @@ class SignUpController: UIViewController {
 
     private let fullNameTextField: UITextField = {
         let textField = Utilities.createTextField(withPlaceholder: "Full Name")
-        textField.isSecureTextEntry = true
 
         return textField
     }()
 
     private let userNameTextField: UITextField = {
         let textField = Utilities.createTextField(withPlaceholder: "Username")
-        textField.isSecureTextEntry = true
 
         return textField
     }()
@@ -100,9 +101,45 @@ class SignUpController: UIViewController {
     }
 
     @objc func handleSignUp() {
+        guard let profileImage = profileImage else {
+            return
+        }
+        guard let email = emailTextField.text else {
+            return
+        }
+        guard let password = passwordTextField.text else {
+            return
+        }
+        guard let fullName = fullNameTextField.text else {
+            return
+        }
+        guard let userName = userNameTextField.text else {
+            return
+        }
 
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Error with creation user:", error.localizedDescription)
+            }
+
+            guard let uid = result?.user.uid else {
+                return
+            }
+            let values = [
+                "email": email,
+                "password": password,
+                "fullName": fullName,
+                "userName": userName,
+            ]
+
+            let ref = Database.database().reference().child("users").child(uid)
+            ref.updateChildValues(values) { error, ref in
+                print("Success")
+            }
+        }
+        print(email, password, fullName, userName)
     }
-    
+
     @objc func handleAddProfilePhoto() {
         present(imagePicker, animated: true)
     }
@@ -153,7 +190,10 @@ extension SignUpController: UIImagePickerControllerDelegate, UINavigationControl
     public func imagePickerController(
             _ picker: UIImagePickerController,
             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        guard let profileImage = info[.editedImage] as? UIImage else {
+            return
+        }
+        self.profileImage = profileImage
 
         plusPhotoButton.layer.cornerRadius = 128 / 2
         plusPhotoButton.layer.masksToBounds = true
