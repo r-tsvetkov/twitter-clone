@@ -51,9 +51,14 @@ struct AuthServece {
                         "profileImageUrl": profileImageUrl
                     ]
                     
+                    
                     USERS_DB.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }
+    }
+    
+    func logInUser(email: String, password: String, completion: AuthDataResultCallback?) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
 }

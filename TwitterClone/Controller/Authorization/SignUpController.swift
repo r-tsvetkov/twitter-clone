@@ -101,6 +101,7 @@ class SignUpController: UIViewController {
     }
     
     @objc func handleSignUp() {
+        print("Clicked")
         guard let profileImage = profileImage else { return }
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
@@ -114,8 +115,17 @@ class SignUpController: UIViewController {
             profileImage: profileImage
         )
         
+        print(credentials)
+        
         AuthServece.shared.registerUser(with: credentials) { (error, databaseRef) in
-            print("Success!")
+            if let error = error {
+                print("Registration error \(error.localizedDescription)")
+            }
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            tab.authenticateUserAndConfigureUI()
+            print("Success")
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
