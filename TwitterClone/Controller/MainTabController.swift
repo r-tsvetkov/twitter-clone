@@ -8,6 +8,15 @@ import Firebase
 
 class MainTabController: UITabBarController {
     
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?.first as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedViewController else { return }
+            
+            feed.user = user
+        }
+    }
+    
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -39,6 +48,7 @@ class MainTabController: UITabBarController {
         } else {
             configureViewControllers()
             configureUI()
+            fetchUser()
         }
     }
     
@@ -47,6 +57,12 @@ class MainTabController: UITabBarController {
             try Auth.auth().signOut()
         } catch let error {
             print("Logout user error \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
         }
     }
     
