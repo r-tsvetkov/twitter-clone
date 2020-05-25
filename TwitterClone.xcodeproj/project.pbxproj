@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		381DCDE424790C5800EAFFF7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381DCDE324790C5800EAFFF7 /* AuthService.swift */; };
+		38248D49247C43EC00CE476B /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D48247C43EC00CE476B /* CaptionTextView.swift */; };
+		38248D4B247C4B4300CE476B /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D4A247C4B4300CE476B /* TweetService.swift */; };
+		3848EB81247B03480039B1EF /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848EB80247B03480039B1EF /* UploadTweetController.swift */; };
 		3883313B24714C9B0039C237 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3883313924714C9B0039C237 /* TwitterClone.xcdatamodeld */; };
 		3883313D24714CA00039C237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3883313C24714CA00039C237 /* Assets.xcassets */; };
 		38DA948024771FCE00F4B25D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38DA947F24771FCE00F4B25D /* GoogleService-Info.plist */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		381DCDE324790C5800EAFFF7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		38248D48247C43EC00CE476B /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
+		38248D4A247C4B4300CE476B /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
+		3848EB80247B03480039B1EF /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		3883312D24714C9B0039C237 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3883313A24714C9B0039C237 /* TwitterClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterClone.xcdatamodel; sourceTree = "<group>"; };
 		3883313C24714CA00039C237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 		D8AF64416AAFA28E668F4063 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38248D48247C43EC00CE476B /* CaptionTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +159,7 @@
 			children = (
 				381DCDE324790C5800EAFFF7 /* AuthService.swift */,
 				38E7D8E1247A78D8009500FE /* UserService.swift */,
+				38248D4A247C4B4300CE476B /* TweetService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 			children = (
 				D8AF602F5AE38E2801CEF18D /* MainTabController.swift */,
 				D8AF678391F2DFE7FD17E3DB /* FeedController.swift */,
+				3848EB80247B03480039B1EF /* UploadTweetController.swift */,
 				D8AF6FE9E4D87710F6D3B5A5 /* ExploreController.swift */,
 				D8AF66B744437BD26D909D81 /* NotificationController.swift */,
 				D8AF629BD617C69BCDDC55FB /* ConversationsController.swift */,
@@ -314,10 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3883313B24714C9B0039C237 /* TwitterClone.xcdatamodeld in Sources */,
+				38248D4B247C4B4300CE476B /* TweetService.swift in Sources */,
 				D8AF6B956BCF53696A5BE361 /* MainTabController.swift in Sources */,
 				D8AF67B10F20AAFBC39CF754 /* AppDelegate.swift in Sources */,
 				D8AF668751635E371D9BE2EB /* SceneDelegate.swift in Sources */,
+				3848EB81247B03480039B1EF /* UploadTweetController.swift in Sources */,
 				D8AF623D9FEEEF7A19E0B2A7 /* FeedController.swift in Sources */,
+				38248D49247C43EC00CE476B /* CaptionTextView.swift in Sources */,
 				D8AF63D2DACB4CFBD1EBD4D6 /* ExploreController.swift in Sources */,
 				D8AF61ED204BBF0C04D72469 /* NotificationController.swift in Sources */,
 				D8AF6A0F15263E7C90F0D0C2 /* ConversationsController.swift in Sources */,
