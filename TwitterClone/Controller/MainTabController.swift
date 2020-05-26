@@ -88,7 +88,7 @@ class MainTabController: UITabBarController {
     
     func configureViewControllers() {
         let controllersConfig: [(UIViewController, String)] = [
-            (controller: FeedViewController(), imageId: "home_unselected"),
+            (controller: FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), imageId: "home_unselected"),
             (controller: ExploreController(), imageId: "search_unselected"),
             (controller: NotificationController(), imageId: "like_unselected"),
             (controller: ConversationsController(), imageId: "ic_mail_outline_white_2x-1"),
