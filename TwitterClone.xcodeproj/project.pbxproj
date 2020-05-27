@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38108E2C247EEAD300686CEE /* TweetVewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38108E2B247EEAD300686CEE /* TweetVewModel.swift */; };
 		381DCDE424790C5800EAFFF7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381DCDE324790C5800EAFFF7 /* AuthService.swift */; };
 		38248D49247C43EC00CE476B /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D48247C43EC00CE476B /* CaptionTextView.swift */; };
 		38248D4B247C4B4300CE476B /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D4A247C4B4300CE476B /* TweetService.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38108E2B247EEAD300686CEE /* TweetVewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVewModel.swift; sourceTree = "<group>"; };
 		381DCDE324790C5800EAFFF7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		38248D48247C43EC00CE476B /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
 		38248D4A247C4B4300CE476B /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		D8AF6A5B9ACF61A8C663CDC6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				38108E2B247EEAD300686CEE /* TweetVewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				3848EB81247B03480039B1EF /* UploadTweetController.swift in Sources */,
 				D8AF623D9FEEEF7A19E0B2A7 /* FeedController.swift in Sources */,
 				38248D49247C43EC00CE476B /* CaptionTextView.swift in Sources */,
+				38108E2C247EEAD300686CEE /* TweetVewModel.swift in Sources */,
 				D8AF63D2DACB4CFBD1EBD4D6 /* ExploreController.swift in Sources */,
 				D8AF61ED204BBF0C04D72469 /* NotificationController.swift in Sources */,
 				D8AF6A0F15263E7C90F0D0C2 /* ConversationsController.swift in Sources */,
