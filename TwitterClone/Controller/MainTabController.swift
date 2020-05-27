@@ -35,6 +35,11 @@ class MainTabController: UITabBarController {
     
     // MARK: - Selectors
     @objc func buttonTapped() {
+        guard let user = user else { return }
+        let controller = UploadTweetController(user: user)
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     // MARK: - API
@@ -61,7 +66,8 @@ class MainTabController: UITabBarController {
     }
     
     func fetchUser() {
-        UserService.shared.fetchUser { user in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(uid: uid) { user in
             self.user = user
         }
     }
@@ -83,7 +89,7 @@ class MainTabController: UITabBarController {
     
     func configureViewControllers() {
         let controllersConfig: [(UIViewController, String)] = [
-            (controller: FeedViewController(), imageId: "home_unselected"),
+            (controller: FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), imageId: "home_unselected"),
             (controller: ExploreController(), imageId: "search_unselected"),
             (controller: NotificationController(), imageId: "like_unselected"),
             (controller: ConversationsController(), imageId: "ic_mail_outline_white_2x-1"),
