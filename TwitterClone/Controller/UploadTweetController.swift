@@ -59,6 +59,7 @@ class UploadTweetController: UIViewController {
     }
     
     // MARK: - Selectors
+    
     @objc func handleCancel() {
         dismiss(animated: true, completion: nil)
     }
@@ -76,6 +77,7 @@ class UploadTweetController: UIViewController {
     }
     
     // MARK: - Helpers
+    
     func configureUI() {
         view.backgroundColor = .white
         configureNavigationBar()
