@@ -12,8 +12,16 @@ private let reuseIdentifier = "TweetCell"
 private let headerIdentifier = "ProfileHeader"
 
 class ProfileController: UICollectionViewController {
+    
     // MARK: - Properties
+    
     private let user: User
+    
+    private var tweets = [Tweet]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -31,7 +39,7 @@ class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         
         configureUI()
-        print("DEBUG: User is \(user.userName)")
+        fetchTweets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +47,14 @@ class ProfileController: UICollectionViewController {
         
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    // MARK: - API
+    
+    func fetchTweets() {
+        TweetService.shared.fetchTewwts(forUser: user) { tweets in
+            self.tweets = tweets
+        }
     }
     
     // MARK: - Helpers
@@ -60,11 +76,12 @@ class ProfileController: UICollectionViewController {
 
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return tweets.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
+        cell.tweet = tweets[indexPath.row]
         
         return cell
     }
@@ -90,7 +107,14 @@ extension ProfileController {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
         
         header.user = user
+        header.delegate = self
         
         return header
+    }
+}
+
+extension ProfileController: ProfileHeaderDelegate {
+    func handleDissmissal() {
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -28,6 +28,7 @@ class CaptionTextView: UITextView {
         font = UIFont.systemFont(ofSize: 16)
         isScrollEnabled = false
         heightAnchor.constraint(equalToConstant: 300).isActive = true
+        becomeFirstResponder()
         
         addSubview(placeholderLabel)
         placeholderLabel.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 4)

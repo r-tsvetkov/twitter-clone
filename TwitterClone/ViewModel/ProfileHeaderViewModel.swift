@@ -46,6 +46,10 @@ struct ProfileHeaderViewModel {
         return "Follow"
     }
     
+    var userName: String {
+        return "@\(user.userName)"
+    }
+    
     init(user: User) {
         self.user = user
     }

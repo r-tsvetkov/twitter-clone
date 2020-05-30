@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileHeaderDelegate: class {
+    func handleDissmissal()
+}
+
 class ProfileHeader: UICollectionReusableView {
     
     // MARK: - Properties
@@ -16,6 +20,8 @@ class ProfileHeader: UICollectionReusableView {
             configureUI()
         }
     }
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -67,7 +73,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
-        label.text = "Roman Tsvetkov"
         
         return label
     }()
@@ -77,7 +82,6 @@ class ProfileHeader: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.textColor = .lightGray
-        label.text = "@tsvetkorb"
         
         return label
     }()
@@ -105,7 +109,6 @@ class ProfileHeader: UICollectionReusableView {
         let tap = UIGestureRecognizer(target: self, action: #selector(handleFollowingTapped))
         label.addGestureRecognizer(tap)
         label.isUserInteractionEnabled = true
-        label.text = "0 folowing"
         
         return label
     }()
@@ -114,7 +117,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         let tap = UIGestureRecognizer(target: self, action: #selector(handleFollowresTapped))
         label.addGestureRecognizer(tap)
-        label.text = "2 followers"
         
         label.isUserInteractionEnabled = true
         
@@ -213,7 +215,7 @@ class ProfileHeader: UICollectionReusableView {
     // MARK: - Selectors
     
     @objc func handleTapBackButton() {
-        
+        delegate?.handleDissmissal()
     }
     
     @objc func editOrFollowButtonTapped() {
@@ -236,6 +238,8 @@ class ProfileHeader: UICollectionReusableView {
         
         profileImageView.sd_setImage(with: user.imageUrl)
         editOrFollowProfileButton.setTitle(viewModel.actionButtonTitle, for: .normal)
+        fullName.text = user.fullName
+        userName.text = viewModel.userName
         followingLabel.attributedText = viewModel.followingString
         followersLabel.attributedText = viewModel.followersString
     }
