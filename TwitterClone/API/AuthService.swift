@@ -52,7 +52,7 @@ struct AuthServece {
                     ]
                     
                     
-                    USERS_DB.child(uid).updateChildValues(values, withCompletionBlock: completion)
+                    REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }
