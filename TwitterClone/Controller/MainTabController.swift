@@ -8,6 +8,8 @@ import Firebase
 
 class MainTabController: UITabBarController {
     
+    // MARK: - Properties
+    
     var user: User? {
         didSet {
             guard let nav = viewControllers?.first as? UINavigationController else { return }
@@ -16,13 +18,14 @@ class MainTabController: UITabBarController {
             feed.user = user
         }
     }
-    
+     
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .twitterBlue
         button.setImage(UIImage(named: "new_tweet"), for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
         return button
     }()
     
@@ -34,6 +37,7 @@ class MainTabController: UITabBarController {
     }
     
     // MARK: - Selectors
+    
     @objc func buttonTapped() {
         guard let user = user else { return }
         let controller = UploadTweetController(user: user)
@@ -43,6 +47,7 @@ class MainTabController: UITabBarController {
     }
     
     // MARK: - API
+    
     func authenticateUserAndConfigureUI() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -85,6 +90,7 @@ class MainTabController: UITabBarController {
             height: 56
         )
         actionButton.layer.cornerRadius = 56 / 2
+        selectedIndex = 1
     }
     
     func configureViewControllers() {

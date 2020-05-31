@@ -21,6 +21,8 @@ class FeedViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
+    
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,13 +39,26 @@ class FeedViewController: UICollectionViewController {
     }
     
     // MARK: - API
-    func fetchTweets() {
+    func fetchTweets(_ completion: (() -> Void)? = nil) {
         TweetService.shared.fetchTweets { tweets in
             self.tweets = tweets
+            
+            if completion != nil {
+                completion!()
+            }
+        }
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func refreshTweetsList() {
+        fetchTweets {
+            self.refreshControl.endRefreshing()
         }
     }
 
     // MARK: - Helpers
+    
     func configureUI() {
         view.backgroundColor = .white
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
@@ -53,6 +68,8 @@ class FeedViewController: UICollectionViewController {
         
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .white
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTweetsList), for: .valueChanged)
     }
     
     func configureLeftBarButton() {

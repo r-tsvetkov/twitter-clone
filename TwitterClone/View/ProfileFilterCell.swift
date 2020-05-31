@@ -40,10 +40,6 @@ class ProfileFilterCell: UICollectionViewCell {
     
     // MARK: - Lifecycles
     
-    // MARK: - Helpers
-    
-    // MARK: - Selectors
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

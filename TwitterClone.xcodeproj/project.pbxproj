@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38108E2C247EEAD300686CEE /* TweetVewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38108E2B247EEAD300686CEE /* TweetVewModel.swift */; };
+		381CC7CA2483FA6400D24FF5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381CC7C92483FA6400D24FF5 /* UserCell.swift */; };
 		381DCDE424790C5800EAFFF7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381DCDE324790C5800EAFFF7 /* AuthService.swift */; };
 		38248D49247C43EC00CE476B /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D48247C43EC00CE476B /* CaptionTextView.swift */; };
 		38248D4B247C4B4300CE476B /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38248D4A247C4B4300CE476B /* TweetService.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		38108E2B247EEAD300686CEE /* TweetVewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVewModel.swift; sourceTree = "<group>"; };
+		381CC7C92483FA6400D24FF5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		381DCDE324790C5800EAFFF7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		38248D48247C43EC00CE476B /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
 		38248D4A247C4B4300CE476B /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				387195C8248032A1009F8BCE /* ProfileHeader.swift */,
 				38E86F6524818E3B009245F3 /* ProfileFilterView.swift */,
 				38E86F67248191BF009245F3 /* ProfileFilterCell.swift */,
+				381CC7C92483FA6400D24FF5 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				D8AF675EB214383D25F3E50D /* Extensions.swift in Sources */,
 				D8AF6FCCC3FE5C2E85C6DA55 /* LoginController.swift in Sources */,
 				38E7D8E4247AE650009500FE /* User.swift in Sources */,
+				381CC7CA2483FA6400D24FF5 /* UserCell.swift in Sources */,
 				D8AF6CFD40C195F4110AE41A /* SignUpController.swift in Sources */,
 				3861DEA8247D8BE60074C323 /* TweetCell.swift in Sources */,
 				38E7D8E2247A78D8009500FE /* UserService.swift in Sources */,
