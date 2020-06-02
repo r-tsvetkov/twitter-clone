@@ -114,6 +114,16 @@ extension ProfileController {
 }
 
 extension ProfileController: ProfileHeaderDelegate {
+    
+    func handleEditProfile(_ profile: ProfileHeader) {
+        UserService.shared.followUser(uid: user.uid) { (error, ref) in
+            if let err = error {
+                print("ERROR: handleEditProfile \(err.localizedDescription)")
+                return
+            }
+        }
+    }
+    
     func handleDissmissal() {
         navigationController?.popViewController(animated: true)
     }
