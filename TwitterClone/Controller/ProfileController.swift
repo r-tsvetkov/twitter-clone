@@ -15,7 +15,7 @@ class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
-    private let user: User
+    private var user: User
     
     private var tweets = [Tweet]() {
         didSet {
@@ -40,6 +40,8 @@ class ProfileController: UICollectionViewController {
         
         configureUI()
         fetchTweets()
+        checkIfUserIsFollowed()
+        fetchUserStats()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +56,20 @@ class ProfileController: UICollectionViewController {
     func fetchTweets() {
         TweetService.shared.fetchTewwts(forUser: user) { tweets in
             self.tweets = tweets
+        }
+    }
+    
+    func checkIfUserIsFollowed() {
+        UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchUserStats() {
+        UserService.shared.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
+            self.collectionView.reloadData()
         }
     }
     
@@ -116,5 +132,33 @@ extension ProfileController {
 extension ProfileController: ProfileHeaderDelegate {
     func handleDissmissal() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func handleEditProfile(_ header: ProfileHeader) {
+        
+        if user.isCurrentUser {
+            // Go to edit profile controller
+            return
+        }
+        
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { (error, ref) in
+                if let err = error {
+                    print("ERROR:  \(err.localizedDescription)")
+                    return
+                }
+                self.user.isFollowed = false
+                self.collectionView.reloadData()
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { (error, ref) in
+                if let err = error {
+                    print("ERROR: handleEditProfile \(err.localizedDescription)")
+                    return
+                }
+                self.user.isFollowed = true
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
