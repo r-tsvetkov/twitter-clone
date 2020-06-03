@@ -15,7 +15,7 @@ class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
-    private let user: User
+    private var user: User
     
     private var tweets = [Tweet]() {
         didSet {
@@ -114,17 +114,30 @@ extension ProfileController {
 }
 
 extension ProfileController: ProfileHeaderDelegate {
-    
-    func handleEditProfile(_ profile: ProfileHeader) {
-        UserService.shared.followUser(uid: user.uid) { (error, ref) in
-            if let err = error {
-                print("ERROR: handleEditProfile \(err.localizedDescription)")
-                return
-            }
-        }
-    }
-    
     func handleDissmissal() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func handleEditProfile(_ profile: ProfileHeader) {
+        
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { (error, ref) in
+                if let err = error {
+                    print("ERROR:  \(err.localizedDescription)")
+                    return
+                }
+                
+                self.user.isFollowed = false
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { (error, ref) in
+                if let err = error {
+                    print("ERROR: handleEditProfile \(err.localizedDescription)")
+                    return
+                }
+                
+                self.user.isFollowed = true
+            }
+        }
     }
 }

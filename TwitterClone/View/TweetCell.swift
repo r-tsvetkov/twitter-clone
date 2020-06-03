@@ -156,7 +156,7 @@ class TweetCell: UICollectionViewCell {
     }
     
     @objc func handleClick() {
-        print("Tapped")
+        
     }
     
     // MARK: - Helpers

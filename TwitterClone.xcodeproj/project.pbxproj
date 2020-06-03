@@ -197,8 +197,8 @@
 				D8AF6FE9E4D87710F6D3B5A5 /* ExploreController.swift */,
 				D8AF66B744437BD26D909D81 /* NotificationController.swift */,
 				D8AF629BD617C69BCDDC55FB /* ConversationsController.swift */,
-				D8AF6389F2D79A44EB56EAD1 /* Authorization */,
 				387195C624802A55009F8BCE /* ProfileController.swift */,
+				D8AF6389F2D79A44EB56EAD1 /* Authorization */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
