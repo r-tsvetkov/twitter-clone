@@ -191,6 +191,7 @@
 		D8AF6695CD6502262472ADDE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D8AF6389F2D79A44EB56EAD1 /* Authorization */,
 				D8AF602F5AE38E2801CEF18D /* MainTabController.swift */,
 				D8AF678391F2DFE7FD17E3DB /* FeedController.swift */,
 				3848EB80247B03480039B1EF /* UploadTweetController.swift */,
@@ -198,7 +199,6 @@
 				D8AF66B744437BD26D909D81 /* NotificationController.swift */,
 				D8AF629BD617C69BCDDC55FB /* ConversationsController.swift */,
 				387195C624802A55009F8BCE /* ProfileController.swift */,
-				D8AF6389F2D79A44EB56EAD1 /* Authorization */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
