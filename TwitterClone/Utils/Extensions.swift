@@ -92,3 +92,29 @@ extension UIColor {
 
     static let twitterBlue = UIColor.rgb(red: 29, green: 161, blue: 242)
 }
+
+// MARK: - UIFont
+
+extension UIFont {
+    var bold: UIFont {
+        return with(traits: .traitBold)
+    } // bold
+
+    var italic: UIFont {
+        return with(traits: .traitItalic)
+    } // italic
+
+    var boldItalic: UIFont {
+        return with(traits: [.traitBold, .traitItalic])
+    } // boldItalic
+
+
+    func with(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(traits) else {
+            return self
+        }
+
+        return UIFont(descriptor: descriptor, size: 8)
+    }
+}
+
