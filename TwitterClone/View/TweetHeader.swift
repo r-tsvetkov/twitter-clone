@@ -118,6 +118,34 @@ class TweetHeader: UICollectionReusableView {
         return view
     }()
     
+    private lazy var commentButton: UIButton = {
+        let button = createButton(withImage: "comment")
+        button.addTarget(self, action: #selector(handleCommentButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var retweetButton: UIButton = {
+        let button = createButton(withImage: "retweet")
+        button.addTarget(self, action: #selector(handleretweetButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var likeButton: UIButton = {
+        let button = createButton(withImage: "like")
+        button.addTarget(self, action: #selector(handleLikeButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var shareButton: UIButton = {
+        let button = createButton(withImage: "share")
+        button.addTarget(self, action: #selector(handleShareButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
     // MARK: - Lifecycles
     
     override init(frame: CGRect) {
@@ -163,6 +191,16 @@ class TweetHeader: UICollectionReusableView {
             paddingTop: 20,
             height: 40
         )
+        
+        let actionButtons = UIStackView(arrangedSubviews: [
+            commentButton,
+            retweetButton,
+            likeButton, shareButton
+        ])
+        actionButtons.spacing = 72
+        addSubview(actionButtons)
+        actionButtons.centerX(inView: self)
+        actionButtons.anchor(bottom: bottomAnchor, paddingBottom: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -171,9 +209,32 @@ class TweetHeader: UICollectionReusableView {
     
     // MARK: - Helpers
     
+    func createButton(withImage imageName: String) -> UIButton {
+        let button = UIButton()
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.tintColor = .darkGray
+        button.setDimensions(width: 20, height: 20)
+        
+        return button
+    }
+    
     // MARK: - Selectors
     
     @objc func optionsButtonTapped() {
+        
+    }
+    
+    @objc func handleCommentButtonTapped() {
+        
+    }
+    
+    @objc func handleretweetButtonTapped() {
+        
+    }
+    @objc func handleLikeButtonTapped() {
+        
+    }
+    @objc func handleShareButtonTapped() {
         
     }
 }
