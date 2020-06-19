@@ -90,7 +90,6 @@ class MainTabController: UITabBarController {
             height: 56
         )
         actionButton.layer.cornerRadius = 56 / 2
-        selectedIndex = 1
     }
     
     func configureViewControllers() {
